@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#board .collumn{
+    border: solid black 1px;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+}
+
+#board .collumn h2{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+}
+
+#ToDo h2{
+    background-color: rgb(255, 83, 83);
+}
+
+#InProgress h2{
+    background-color: rgb(255, 197, 91);
+}
+
+#Done h2{
+    background-color: rgb(122, 255, 122);
+}
+
+ul{
+    list-style-type:none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+}
+
+li{
+    background-color: rgb(226, 226, 226);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+li .icons{
+    margin: 20px auto 0;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.collumn .fa-plus-circle{
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 20px;
+}
