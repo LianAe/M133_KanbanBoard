@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KanbanBoard</title>
+    <script src="app.js" type="module"></script>
+    <script type="module" defer>
+        import {init} from "./lib.templating.js";
+        init()
+    </script>
     <script src="https://kit.fontawesome.com/0849b0daf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,7 +32,17 @@
         <div class="collumn" id="InProgress">
             <h2>In Progress</h2>
             <ul >
-
+                <template data-template-foreach="loadList" data-template-let="items">
+                    <li>
+                        <h3>{{ items.beschreibung}}</h3>
+                        <button>test</button>
+                    </li>
+                    <script type="module">
+                        import {append} from "./lib.templating.js";
+                        scope.querySelector("button")
+                        .addEventListener("click", () => (append()))
+                    </script>
+                </template>
             </ul>
             <i class="fas fa-plus-circle"></i>
         </div>

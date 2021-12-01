@@ -1,8 +1,7 @@
 'use strict';
-import { AddTask, Task, kanbanTasks, state } from './data.js';
+import { Task, kanbanTasks, state } from './data.js';
 import { Application, Router } from "https://deno.land/x/oak@v9.0.0/mod.ts";
 
-const app = new Application();
 const router = new Router();
 
 router.get("/task", context => {
@@ -60,5 +59,4 @@ router.get("/task", context => {
     
 });
 
-app.use(router.routes());
-app.listen({ port: 8000 });
+export const apiRoutes = router.routes();
