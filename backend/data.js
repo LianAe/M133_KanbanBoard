@@ -1,8 +1,10 @@
 'use strict';
+import {v4} from "https://deno.land/std@0.77.0/uuid/mod.ts";
+
 export class Task{
 
     constructor(content, state){
-        this.id = kanbanTasks.length;
+        this.id = v4.generate();
         this.content = content;
         this.state = state;
     }
@@ -22,4 +24,4 @@ export function AddTask(text, taskState){
 export let kanbanTasks = [];
 
 kanbanTasks.push(new Task("Task 1", state.toDo))
-kanbanTasks.push(new Task("Task 2", state.toDo))
+kanbanTasks.push(new Task("Task 2", state.inProgress))

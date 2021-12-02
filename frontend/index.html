@@ -7,7 +7,7 @@
     <title>KanbanBoard</title>
     <script src="app.js" type="module"></script>
     <script type="module" defer>
-        import {init} from "./lib.templating.js";
+        import {init} from "./lib/templating.js";
         init()
     </script>
     <script src="https://kit.fontawesome.com/0849b0daf3.js" crossorigin="anonymous"></script>
@@ -17,28 +17,39 @@
     <div id="board">
         <div class="collumn" id="ToDo">
             <h2>To Do</h2>
-            <ul>
-                <li>
-                    <span>Content</span>
-                    <div class="icons">
-                        <i class="far fa-arrow-alt-circle-left"></i>
-                        <i class="fas fa-trash"></i>
-                        <i class="far fa-arrow-alt-circle-right"></i>
-                    </div>
-                </li>
+            <ul >
+                <template data-template-foreach="loadListToDo" data-template-let="tasks">
+                    <li>
+                        <span>{{ tasks.content}}</span>
+                        <div class="icons">
+                            <i class="far fa-arrow-alt-circle-left"></i>
+                            <i class="fas fa-trash"></i>
+                            <i class="far fa-arrow-alt-circle-right"></i>
+                        </div>
+                    </li>
+                    <script type="module">
+                        import {append} from "./lib/templating.js";
+                        scope.querySelector("button")
+                        .addEventListener("click", () => (append()))
+                    </script>
+                </template>
             </ul>
             <i class="fas fa-plus-circle"></i>
         </div>
         <div class="collumn" id="InProgress">
             <h2>In Progress</h2>
             <ul >
-                <template data-template-foreach="loadList" data-template-let="items">
+                <template data-template-foreach="loadListInProgress" data-template-let="tasks">
                     <li>
-                        <h3>{{ items.beschreibung}}</h3>
-                        <button>test</button>
+                        <span>{{ tasks.content}}</span>
+                        <div class="icons">
+                            <i class="far fa-arrow-alt-circle-left"></i>
+                            <i class="fas fa-trash"></i>
+                            <i class="far fa-arrow-alt-circle-right"></i>
+                        </div>
                     </li>
                     <script type="module">
-                        import {append} from "./lib.templating.js";
+                        import {append} from "./lib/templating.js";
                         scope.querySelector("button")
                         .addEventListener("click", () => (append()))
                     </script>
@@ -49,7 +60,21 @@
         <div class="collumn" id="Done">
             <h2>Done</h2>
             <ul >
-
+                <template data-template-foreach="loadListDone" data-template-let="tasks">
+                    <li>
+                        <span>{{ tasks.content}}</span>
+                        <div class="icons">
+                            <i class="far fa-arrow-alt-circle-left"></i>
+                            <i class="fas fa-trash"></i>
+                            <i class="far fa-arrow-alt-circle-right"></i>
+                        </div>
+                    </li>
+                    <script type="module">
+                        import {append} from "./lib/templating.js";
+                        scope.querySelector("button")
+                        .addEventListener("click", () => (append()))
+                    </script>
+                </template>
             </ul>
             <i class="fas fa-plus-circle"></i>
         </div>
