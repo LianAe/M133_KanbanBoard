@@ -17,3 +17,21 @@ document.loadListDone = async () => {
     console.log(response);
     return await response.json();
 }
+
+export async function deleteTask(id){
+    await fetch("/api/task/" + id,{
+        method: "DELETE"
+    });
+}
+
+export async function taskStatusUp(id){
+    await fetch("/api/task/" + id + "/up",{
+        method: "PUT"
+    });
+}
+
+export async function taskStatusDown(id){
+    await fetch("/api/task/" + id + "/down",{
+        method: "PUT"
+    });
+}
