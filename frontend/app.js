@@ -1,19 +1,19 @@
 'use script'
 
 document.loadListToDo = async () => {
-    const response = await fetch("/api/tasks/1");
-    console.log(response);
-    return await response.json();
+    return await LoadTaskListWithState(1);
 }
 
 document.loadListInProgress = async () => {
-    const response = await fetch("/api/tasks/2");
-    console.log(response);
-    return await response.json();
+    return await LoadTaskListWithState(2);
 }
 
 document.loadListDone = async () => {
-    const response = await fetch("/api/tasks/3");
+    return await LoadTaskListWithState(3);
+}
+
+async function LoadTaskListWithState(state){
+    const response = await fetch('/api/tasks/%i', state);
     console.log(response);
     return await response.json();
 }
