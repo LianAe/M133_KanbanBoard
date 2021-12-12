@@ -20,6 +20,27 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <script type="module">
+        function taskTemplate(){
+            import { append } from "./lib/templating.js";
+            import { deleteTask, taskStatusUp, taskStatusDown } from "./app.js";
+            scope.querySelector(".deleteIcon")
+                .addEventListener("click", () => {
+                    deleteTask(tasks.id);
+                    location.reload();
+                });
+            scope.querySelector(".rightIcon")
+                .addEventListener("click", () => {
+                    taskStatusUp(tasks.id);
+                    location.reload();
+                });
+            scope.querySelector(".leftIcon")
+                .addEventListener("click", () => {
+                    taskStatusDown(tasks.id);
+                    location.reload();
+                })
+        }
+    </script>
 </head>
 
 <body>
@@ -36,24 +57,7 @@
                             <i class="far fa-arrow-alt-circle-right rightIcon"></i>
                         </div>
                         <script type="module">
-                            import { append } from "./lib/templating.js";
-                            import { deleteTask, taskStatusUp, taskStatusDown } from "./app.js";
-                            scope.querySelector(".deleteIcon")
-                                .addEventListener("click", () => {
-                                    deleteTask(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".rightIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusUp(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".leftIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusDown(tasks.id);
-                                    location.reload();
-                                })
-
+                            taskTemplate();
                         </script>
                     </li>
 
@@ -73,24 +77,7 @@
                             <i class="far fa-arrow-alt-circle-right rightIcon"></i>
                         </div>
                         <script type="module">
-                            import { append } from "./lib/templating.js";
-                            import { deleteTask, taskStatusUp, taskStatusDown } from "./app.js";
-                            scope.querySelector(".deleteIcon")
-                                .addEventListener("click", () => {
-                                    deleteTask(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".rightIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusUp(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".leftIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusDown(tasks.id);
-                                    location.reload();
-                                })
-
+                            taskTemplate();
                         </script>
                     </li>
                 </template>
@@ -109,24 +96,7 @@
                             <i class="far fa-arrow-alt-circle-right rightIcon"></i>
                         </div>
                         <script type="module">
-                            import { append } from "./lib/templating.js";
-                            import { deleteTask, taskStatusUp, taskStatusDown } from "./app.js";
-                            scope.querySelector(".deleteIcon")
-                                .addEventListener("click", () => {
-                                    deleteTask(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".rightIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusUp(tasks.id);
-                                    location.reload();
-                                });
-                            scope.querySelector(".leftIcon")
-                                .addEventListener("click", () => {
-                                    taskStatusDown(tasks.id);
-                                    location.reload();
-                                })
-
+                            taskTemplate();
                         </script>
                     </li>
                 </template>
